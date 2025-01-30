@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;  /* Light mode background (white) */
+  --foreground: #171717;  /* Light mode text (almost black) */
+}
+
+/* Explicitly disable dark mode */
+.dark {
+  --background: #0a0a0a;  /* Dark mode background (almost black) */
+  --foreground: #ededed;  /* Dark mode text (light gray) */
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Ensure Navbar maintains its color */
+nav {
+  background-color: theme("colors.green.700") !important;
+}
