@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { db } from "../db/config";
 
-export default function Navbar() {
+export default async function Navbar() {
+  const store = await db.query.users.findFirst();
   return (
     <nav className="bg-green-700 shadow-md sticky top-0 z-50 w-full">
       <div className="max-w-6xl mx-auto px-4 py-2 flex justify-between items-center">
@@ -8,7 +10,7 @@ export default function Navbar() {
           href="/"
           className="text-xl font-bold text-white hover:text-green-100 transition-colors duration-300"
         >
-          Your Store Name
+          {store?.name}
         </Link>
         <div className="space-x-3">
           {[
